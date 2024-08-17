@@ -1,5 +1,6 @@
 package com.josval.sales_management.model.dto;
 
+import com.josval.sales_management.model.entity.User;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
@@ -15,4 +16,5 @@ public class SaleDTO implements Serializable {
     private Date createdDate;
     private String description;
     private Integer amount;
+    private User user;
 }

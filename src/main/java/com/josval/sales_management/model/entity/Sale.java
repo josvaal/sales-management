@@ -29,4 +29,8 @@ public class Sale implements Serializable {
 
     @Column(name = "amount")
     private Integer amount;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_sale_user"))
+    private User user;
 }
