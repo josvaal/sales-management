@@ -9,7 +9,7 @@ import java.util.List;
 public interface ISaleService {
     List<Sale> listAll();
     List<Sale> listAllByUserId(Integer id);
-    Sale save(SaleDTO sale, User user);
+    Sale save(SaleDTO sale);
     Sale findById(Integer id);
     void delete(Sale sale);
     boolean existsById(Integer id);
