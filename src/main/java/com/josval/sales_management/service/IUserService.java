@@ -11,6 +11,5 @@ public interface IUserService {
     User findById(Integer id);
     void delete(User user);
     boolean existsById(Integer id);
-    String getRoleById(Integer id);
     boolean isAdminById(Integer id);
 }
