@@ -24,6 +24,10 @@ public class User implements Serializable {
     @Column(name = "lastname")
     private String lastname;
 
+    @Column(name = "role")
+    //TODO: The role may vary between user and admin
+    private String role;
+
     @Column(name = "email")
     private String email;
 
