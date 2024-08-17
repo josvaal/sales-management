@@ -3,7 +3,6 @@ package com.josval.sales_management.service.impl;
 import com.josval.sales_management.model.dao.SaleDAO;
 import com.josval.sales_management.model.dto.SaleDTO;
 import com.josval.sales_management.model.entity.Sale;
-import com.josval.sales_management.model.entity.User;
 import com.josval.sales_management.service.ISaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
