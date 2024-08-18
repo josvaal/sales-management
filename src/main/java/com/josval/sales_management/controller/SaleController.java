@@ -70,6 +70,7 @@ public class SaleController {
               .description(saleSave.getDescription())
               .amount(saleSave.getAmount())
               .user(saleSave.getUser())
+              .build()
           )
           .build(),
           HttpStatus.CREATED
