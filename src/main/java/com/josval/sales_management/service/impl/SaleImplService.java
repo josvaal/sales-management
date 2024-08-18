@@ -5,10 +5,12 @@ import com.josval.sales_management.model.dto.SaleDTO;
 import com.josval.sales_management.model.entity.Sale;
 import com.josval.sales_management.service.ISaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class SaleImplService implements ISaleService {
     @Autowired
     private SaleDAO saleDao;
