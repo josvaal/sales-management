@@ -37,7 +37,7 @@ public class UserController {
     );
   }
 
-  @PostMapping("users")
+  @PostMapping("user")
   public ResponseEntity<?> create(@RequestBody UserDTO userDto) {
     User userSave = null;
     try {
