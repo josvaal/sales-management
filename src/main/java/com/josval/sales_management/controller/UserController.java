@@ -51,6 +51,7 @@ public class UserController {
               .role(userSave.getRole())
               .email(userSave.getEmail())
               .password(userSave.getPassword())
+              .build()
           )
           .build(),
           HttpStatus.CREATED
