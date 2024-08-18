@@ -50,13 +50,4 @@ public class UserImplService implements IUserService {
     public boolean existsById(Integer id) {
         return userDao.existsById(id);
     }
-
-    @Override
-    public boolean isAdminById(Integer id) {
-        User user = userDao.findById(id).orElse(null);
-        if(user == null){
-            return false;
-        }
-        return Objects.equals(user.getRole(), "admin");
-    }
 }
