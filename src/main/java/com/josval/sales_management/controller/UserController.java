@@ -145,4 +145,31 @@ public class UserController {
         HttpStatus.OK
     );
   }
+
+  @GetMapping("user/email/{email}")
+  public ResponseEntity<?> showByEmail(@PathVariable String email){
+    User user = userService.findByEmail(email);
+    if(user == null){
+      return new ResponseEntity<>(MessageResponse.builder()
+          .message("This user was not found")
+          .object(null)
+          .build(),
+          HttpStatus.NOT_FOUND
+      );
+    }
+    return new ResponseEntity<>(MessageResponse.builder()
+        .message("Success")
+        .object(UserDTO.builder()
+            .id(user.getId())
+            .name(user.getName())
+            .lastname(user.getLastname())
+            .role(user.getRole())
+            .email(user.getEmail())
+            .password(user.getPassword())
+            .build()
+        )
+        .build(),
+        HttpStatus.OK
+    );
+  }
 }
