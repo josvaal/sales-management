@@ -50,6 +50,24 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td>
+						<input class="input min-w-32 w-32" placeholder="Filter by ID" type="number" />
+					</td>
+					<td>
+						<input class="input" placeholder="Filter by Date and Time" type="datetime-local" />
+					</td>
+					<td>
+						<input class="input min-w-44 w-44" placeholder="Filter by Description" />
+					</td>
+					<td>
+						<input class="input min-w-44 w-44" placeholder="Filter by Amount" type="number" />
+					</td>
+					<td>
+						<input class="input min-w-40 w-40" placeholder="Filter by Seller" />
+					</td>
+					<td> </td>
+				</tr>
+				<tr>
 					<th>1</th>
 					<td>2024-08-19 00:34</td>
 					<td>A Fucking Pepsi</td>
