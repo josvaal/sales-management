@@ -28,7 +28,7 @@ public class User implements Serializable {
     //TODO: The role may vary between user and admin
     private String role;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
