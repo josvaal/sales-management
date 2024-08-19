@@ -4,17 +4,21 @@ import com.josval.sales_management.model.dao.UserDAO;
 import com.josval.sales_management.model.dto.UserDTO;
 import com.josval.sales_management.model.entity.User;
 import com.josval.sales_management.service.IUserService;
+import org.jasypt.util.text.AES256TextEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class UserImplService implements IUserService {
     @Autowired
     private UserDAO userDao;
+
+    @Value("${encrypt.secret_key}")
+    private String secret_key;
 
     @Transactional(readOnly = true)
     @Override
@@ -25,13 +29,18 @@ public class UserImplService implements IUserService {
     @Transactional
     @Override
     public User save(UserDTO userDto) {
+        AES256TextEncryptor textEncryptor = new AES256TextEncryptor();
+        textEncryptor.setPassword(secret_key);
+
+        String passwordEncrypted = textEncryptor.encrypt(userDto.getPassword());
+
         User user = User.builder()
                 .id(userDto.getId())
                 .name(userDto.getName())
                 .lastname(userDto.getLastname())
                 .role(userDto.getRole())
                 .email(userDto.getEmail())
-                .password(userDto.getPassword())
+                .password(passwordEncrypted)
                 .build();
         return userDao.save(user);
     }
