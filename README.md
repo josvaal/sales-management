@@ -6,13 +6,13 @@
 
 <p align="center"><img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&amp;logo=openjdk&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&amp;logo=svelte&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&amp;logo=spring&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&amp;logo=swagger&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="shields"></p>
 
-<h2>🚀 Demo</h2>
+<!-- <h2>🚀 Demo</h2> -->
 
-[https://soon.com](https://soon.com)
+<!-- [https://soon.com](https://soon.com) -->
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/josvaal/sales-management/main/assets/screenshot_1.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://raw.githubusercontent.com/josvaal/sales-management/main/assets/screenshot_1.png" alt="project-screenshot" width="1280" height="400/">
 
 <h2>🧐 Features</h2>
 
