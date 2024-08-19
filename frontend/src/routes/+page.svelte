@@ -78,8 +78,27 @@
 					</td>
 					<td>
 						<div class="btn-group btn-group-scrollable">
-							<button class="btn">Update</button>
-							<button class="btn">Delete</button>
+							<label class="btn" for="modal-1">Update</label>
+							<input class="modal-state" id="modal-1" type="checkbox" />
+							<label class="btn" for="modal-2">Delete</label>
+							<input class="modal-state" id="modal-2" type="checkbox" />
+
+							<div class="modal">
+								<label class="modal-overlay" for="modal-2"></label>
+								<div class="modal-content flex flex-col gap-5">
+									<label
+										for="modal-2"
+										class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label
+									>
+									<h2 class="text-xl">Delete Sale</h2>
+									<span> Are you sure you want to delete this sales record? </span>
+									<div class="flex gap-3">
+										<button class="btn btn-error btn-block">Delete</button>
+
+										<button class="btn btn-block">Cancel</button>
+									</div>
+								</div>
+							</div>
 							<button class="btn">Print</button>
 						</div>
 					</td>
