@@ -9,6 +9,7 @@ public interface IUserService {
     List<User> listAll();
     User save(UserDTO user);
     User findById(Integer id);
+    User findByEmail(String email);
     void delete(User user);
     boolean existsById(Integer id);
 }
