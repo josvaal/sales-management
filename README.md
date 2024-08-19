@@ -57,10 +57,6 @@ Technologies used in the project:
 - JavaScript
 - JSDoc
 
-<h2>🛡️ License:</h2>
-
-This project is licensed under the
-
 <h2>💖Like my work?</h2>
 
 Give me a star or contact me in case you want to hire me.
