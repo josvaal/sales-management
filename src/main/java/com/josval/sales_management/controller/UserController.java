@@ -4,7 +4,10 @@ import com.josval.sales_management.model.dto.UserDTO;
 import com.josval.sales_management.model.entity.User;
 import com.josval.sales_management.model.payload.MessageResponse;
 import com.josval.sales_management.service.IUserService;
+import org.jasypt.util.password.StrongPasswordEncryptor;
+import org.jasypt.util.text.AES256TextEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -104,12 +107,12 @@ public class UserController {
   }
 
   @DeleteMapping("user/{id}")
-  public ResponseEntity<?> delete(@PathVariable Integer id){
+  public ResponseEntity<?> delete(@PathVariable Integer id) {
     try {
       User userDelete = userService.findById(id);
       userService.delete(userDelete);
       return new ResponseEntity<>(userDelete, HttpStatus.NO_CONTENT);
-    } catch (DataAccessException e){
+    } catch (DataAccessException e) {
       return new ResponseEntity<>(MessageResponse.builder()
           .message(e.getMessage())
           .object(null)
@@ -120,9 +123,9 @@ public class UserController {
   }
 
   @GetMapping("user/{id}")
-  public ResponseEntity<?> showById(@PathVariable Integer id){
+  public ResponseEntity<?> showById(@PathVariable Integer id) {
     User user = userService.findById(id);
-    if(user == null){
+    if (user == null) {
       return new ResponseEntity<>(MessageResponse.builder()
           .message("This user was not found")
           .object(null)
@@ -146,30 +149,49 @@ public class UserController {
     );
   }
 
-  @GetMapping("user/email/{email}")
-  public ResponseEntity<?> showByEmail(@PathVariable String email){
-    User user = userService.findByEmail(email);
-    if(user == null){
+  @PostMapping("user/login")
+  public ResponseEntity<?> login(@RequestBody UserDTO userDTO) {
+    try {
+      User user = userService.findByEmail(userDTO.getEmail());
+      if (user == null) {
+        return new ResponseEntity<>(MessageResponse.builder()
+            .message("This user was not found")
+            .object(null)
+            .build(),
+            HttpStatus.NOT_FOUND
+        );
+      }
+      StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+      boolean isPasswordCorrect = passwordEncryptor.checkPassword(userDTO.getPassword(), user.getPassword());
+      if (!isPasswordCorrect) {
+        return new ResponseEntity<>(MessageResponse.builder()
+            .message("Passwords do not match")
+            .object(null)
+            .build(),
+            HttpStatus.UNAUTHORIZED
+        );
+      }
       return new ResponseEntity<>(MessageResponse.builder()
-          .message("This user was not found")
+          .message("Success")
+          .object(UserDTO.builder()
+              .id(user.getId())
+              .name(user.getName())
+              .lastname(user.getLastname())
+              .role(user.getRole())
+              .email(user.getEmail())
+              .password("")
+              .build()
+          )
+          .build(),
+          HttpStatus.OK
+      );
+    } catch (DataAccessException e) {
+      return new ResponseEntity<>(MessageResponse.builder()
+          .message(e.getMessage())
           .object(null)
           .build(),
-          HttpStatus.NOT_FOUND
+          HttpStatus.METHOD_NOT_ALLOWED
       );
     }
-    return new ResponseEntity<>(MessageResponse.builder()
-        .message("Success")
-        .object(UserDTO.builder()
-            .id(user.getId())
-            .name(user.getName())
-            .lastname(user.getLastname())
-            .role(user.getRole())
-            .email(user.getEmail())
-            .password(user.getPassword())
-            .build()
-        )
-        .build(),
-        HttpStatus.OK
-    );
   }
 }
