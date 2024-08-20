@@ -15,6 +15,10 @@ export default [
 				...globals.browser,
 				...globals.node
 			}
+		},
+		rules: {
+			"a11y-label-has-associated-control": "off",
+			"a11y-invalid-attribute": "off"
 		}
 	},
 	{
