@@ -1,1 +1,13 @@
-// place files you want to import through the `$lib` alias in this folder.
+import moneyIcon from '$lib/assets/money.svg?raw';
+
+export let data = {
+    title: "Sales Management",
+    icon: moneyIcon,
+    modules: {
+        admin: [{
+            title: "Summary",
+            ref: "/admin/summary",
+        }],
+        user: []
+    }
+}
