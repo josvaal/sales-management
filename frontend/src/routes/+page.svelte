@@ -36,7 +36,7 @@
 		</div>
 	</div>
 
-	<div class="flex w-full overflow-x-auto">
+	<div class="flex overflow-x-auto">
 		<table class="table table-compact">
 			<thead>
 				<tr>
