@@ -1,7 +1,3 @@
-<button class="btn">ok</button>
-<button class="btn">ok</button>
-<button class="btn">ok</button>
-
 <div class="flex overflow-x-auto">
 	<table class="table table-compact">
 		<thead>
